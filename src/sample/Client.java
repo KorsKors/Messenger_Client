@@ -67,7 +67,7 @@ public class Client implements MyCallBack {
                     .handler ((new SmartHouseClientInitializer (tb,uu)));
             channel = null;
             System.out.println ("Пытаюсь подключиться к серверу!");
-            channel = b.connect ("88.201.204.21", 9989).sync ().channel ();//88.201.204.21
+            channel = b.connect ("127.0.0.1", 9989).sync ().channel ();//88.201.204.21
             System.out.println ("Подключение удалось!");
             switch (s) {
                 case (101): {//Запрос на регистрацию
@@ -93,7 +93,9 @@ public class Client implements MyCallBack {
                 }
                 case (303): {//Запрос на поиск юзера
                     System.out.print ("Поиск юзера Сlient.runs303:" + str);
+
                     String t = search (channel, mylogin, str);
+                    System.out.println("Добавляем нового пользователя"+t);
                    // channel.close ();
                     if (!t.equals ("0")) {
                         // if(DB.search (mylogin,str)) {
@@ -107,6 +109,7 @@ public class Client implements MyCallBack {
                             }
                         }
                         if (!n) {
+                            System.out.println("Добавляем нового пользователя");
                             User user = new User (str);
                             uu = tb.getItems ();
                             uu.add (user);
@@ -154,7 +157,7 @@ public class Client implements MyCallBack {
 
         {
 
-            group.shutdownGracefully ();
+          //  group.shutdownGracefully ();
         }
         return null;
     }

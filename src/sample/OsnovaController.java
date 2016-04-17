@@ -34,13 +34,15 @@ public class OsnovaController {
         this.dialog = dialogStage;
     }
     public void setMainApp(Osnova main,ObservableList<User> uu) {
-        Priem priem= new Priem();
-        Thread thread = new Thread (priem);
-        thread.start ();
+
         this.osnova = main;
         this.uu=uu;
         table.setItems (osnova.getUser ());
         uu=table.getItems ();
+
+        //Priem priem= new Priem();//пингуем сервер с целью проверки новых друзей и сообщений
+       // Thread thread = new Thread (priem);//
+       // thread.start ();//
 
         //table =new TableView<User>(uu);
         //uu.add(new User("Паша"));

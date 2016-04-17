@@ -135,7 +135,7 @@ public class Osnova {
                 Alert alert = new Alert (Alert.AlertType.INFORMATION);
                 alert.initOwner (this.getPrimaryStage ());
                 alert.setTitle ("Клиент lдобавлен");
-                alert.setHeaderText ("Клиент успешно добавлен в ваш список кнтактов");
+                alert.setHeaderText ("Клиент успешно добавлен в ваш список контактов");
                 alert.setContentText ("Всё хорошо!");
                 alert.showAndWait ();
 

@@ -1,9 +1,6 @@
 package sample.Priem;
 
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
-import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.*;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
@@ -20,32 +17,25 @@ import java.util.ArrayList;
 public class PriemHandler extends SimpleChannelInboundHandler<Object> {
     ObservableList<User> uu;
     TableView<User> tb;
-    public  PriemHandler(ObservableList<User> uu,TableView<User> tb){
-        this.tb=tb;
-        this.uu=uu;
+
+    public PriemHandler(ObservableList<User> uu, TableView<User> tb) {
+        this.tb = tb;
+        this.uu = uu;
     }
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object o) {
 
         ArrayList<Object> k = (ArrayList) o;
         switch ((String) k.get (0)) {
-            case ("404"): {
-                System.out.print ("Получил запрос на добавление логина");
-                Boolean znak = false;
-                for (int i = 0; i < uu.size (); i++) {
-                    if (((String) k.get (1)).equals (uu.get (i))) {
-                        znak = true;
-                        break;
-                    }
-                }
-                if (znak == false) {
-                    User user = new User ((String) k.get (1));
-                    uu = tb.getItems ();
-                    uu.add (user);
-                }
-            }
+
         }
     }
+    protected void write(Channel channel){
+        while(true){
+        channel.writeAndFlush(404505);}
+    }
 }
+
 
 
