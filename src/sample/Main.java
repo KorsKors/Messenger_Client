@@ -63,7 +63,7 @@ public class Main extends Application {
 
         //new Client().run();
         //DB.proverka ("USERr");
-        launch (args);
+        launch (args);//
 
 
     }
