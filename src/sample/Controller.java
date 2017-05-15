@@ -106,6 +106,7 @@ public class Controller implements MyCallBack {
 
     }
 
+
     @Override
     public void onGetResult(String str) {
 

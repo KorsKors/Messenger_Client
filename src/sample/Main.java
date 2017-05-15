@@ -58,9 +58,8 @@ public class Main extends Application {
             e.printStackTrace ();
         }
     }
-
     public static void main(String[] args) {
-
+        String s =new String("123");
         //new Client().run();
         //DB.proverka ("USERr");
         launch (args);//
